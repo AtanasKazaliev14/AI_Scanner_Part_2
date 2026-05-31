@@ -4,10 +4,10 @@ import numpy as np
 from PIL import Image
 import cv2
 
-from databases.ingredient_database import INGREDIENT_DATABASE
-from databases.harmful_ingredients import HARMFUL_INGREDIENTS
+from ingredient_database import INGREDIENT_DATABASE
+from harmful_ingredients import HARMFUL_INGREDIENTS
 
-from services.detection_service import (
+from detection_service import (
     detect_ingredients,
     detect_harmful,
     detect_allergens,
@@ -21,7 +21,6 @@ from services.scoring_service import (
     generate_summary,
     risk_color
 )
-
 from styles.custom_css import CSS
 
 
