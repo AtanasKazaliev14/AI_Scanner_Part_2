@@ -6,3 +6,5 @@ pillow
 rapidfuzz
 torch
 torchvision
+python-dotenv
+openai
