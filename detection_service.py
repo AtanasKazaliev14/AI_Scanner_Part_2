@@ -1,5 +1,4 @@
 import re
-
 from rapidfuzz import fuzz
 
 from ingredient_database import INGREDIENT_DATABASE
@@ -12,11 +11,15 @@ from allergens import ALLERGENS
 # ==========================================
 
 def normalize_text(text):
-
+    if not text:
+        return ""
+    
     text = text.lower()
 
     replacements = {
-        "|": "i"
+        "|": "i",
+        "l": "i", # Честа OCR грешка
+        "0": "o"  # Помага при разчитане на думи, но внимаваме за Е-номерата
     }
 
     for wrong, correct in replacements.items():
@@ -55,11 +58,8 @@ def detect_e_numbers(text):
     found = []
 
     patterns = [
-
         r'[Ee][\s\-\.:]?\d{3}',
-
         r'[Ee][\s\-\.:]?\d{3}[a-zA-Z]?',
-
         r'E[\s\-]?\d{3}'
     ]
 
@@ -86,22 +86,24 @@ def detect_e_numbers(text):
 
 def fuzzy_contains(term, words):
 
-    term = term.lower()
+    term = term.lower().strip()
 
     for word in words:
-
         word = word.strip().lower()
+        if not word:
+            continue
 
+        # Първо: Директно съвпадение като подниз (напр. "соя" в "соев лецитин")
         if term in word:
             return True
 
-        score = fuzz.ratio(
-            term,
-            word
-        )
-
-        if score >= 88:
-            return True
+        # Второ: Fuzzy съвпадение дума по дума
+        # Разбиваме фразата на отделни чисти думи
+        sub_words = re.findall(r'\b\w+\b', word)
+        for sub_word in sub_words:
+            score = fuzz.ratio(term, sub_word)
+            if score >= 85: # Свалих го леко на 85 за по-добро хващане на OCR грешки
+                return True
 
     return False
 
@@ -116,14 +118,13 @@ def detect_ingredients(text):
 
     found = []
 
+    # ПОПРАВКА: Подаваме нормализирания текст тук
     found.extend(
-        detect_e_numbers(text)
+        detect_e_numbers(text_normalized)
     )
 
-    words = re.split(
-        r'[,;\n()\[\]]',
-        text_normalized
-    )
+    # Разбиваме текста на смислени фрази/думи
+    words = re.split(r'[,;\n()\[\]\.]', text_normalized)
 
     for code, data in INGREDIENT_DATABASE.items():
 
@@ -150,12 +151,9 @@ def detect_ingredients(text):
 
 def detect_harmful(text):
 
-    text = normalize_text(text)
+    text_normalized = normalize_text(text)
 
-    words = re.split(
-        r'[,;\n()\[\]]',
-        text
-    )
+    words = re.split(r'[,;\n()\[\]\.]', text_normalized)
 
     found = []
 
@@ -178,12 +176,9 @@ def detect_harmful(text):
 
 def detect_allergens(text):
 
-    text = normalize_text(text)
+    text_normalized = normalize_text(text)
 
-    words = re.split(
-        r'[,;\n()\[\]]',
-        text
-    )
+    words = re.split(r'[,;\n()\[\]\.]', text_normalized)
 
     found = []
 
@@ -214,34 +209,41 @@ def detect_product_category(text):
             "taurine",
             "гуарана",
             "guarana",
-            "caffeine"
+            "caffeine",
+            "кофеин"
         ],
 
         "Soft Drink": [
             "carbonated",
-            "газирана"
+            "газирана",
+            "напитка"
         ],
 
         "Chocolate": [
             "cocoa",
-            "какао"
+            "какао",
+            "шоколад"
         ],
 
         "Snack": [
             "chips",
-            "чипс"
+            "чипс",
+            "снак"
         ],
 
         "Processed Meat": [
             "salami",
             "sausage",
             "колбас",
-            "салам"
+            "салам",
+            "месо"
         ],
 
         "Dairy Product": [
             "milk",
-            "мляко"
+            "мляко",
+            "сирене",
+            "кашкавал"
         ]
     }
 
