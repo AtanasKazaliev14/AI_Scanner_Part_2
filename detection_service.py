@@ -2,9 +2,9 @@ import re
 
 from rapidfuzz import fuzz
 
-from databases.ingredient_database import INGREDIENT_DATABASE
-from databases.harmful_ingredients import HARMFUL_INGREDIENTS
-from databases.allergens import ALLERGENS
+from ingredient_database import INGREDIENT_DATABASE
+from harmful_ingredients import HARMFUL_INGREDIENTS
+from allergens import ALLERGENS
 
 
 # ==========================================
