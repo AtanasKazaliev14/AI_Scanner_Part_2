@@ -1,5 +1,5 @@
-from databases.ingredient_database import INGREDIENT_DATABASE
-from databases.harmful_ingredients import HARMFUL_INGREDIENTS
+from ingredient_database import INGREDIENT_DATABASE
+from harmful_ingredients import HARMFUL_INGREDIENTS
 
 
 # ==========================================
