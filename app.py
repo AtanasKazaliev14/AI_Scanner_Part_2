@@ -21,8 +21,20 @@ from services.scoring_service import (
     generate_summary,
     risk_color
 )
-from styles.custom_css import CSS
 
+# ==========================================
+# ВГРАДЕН CSS (ЗАМЕСТВА ПРОБЛЕМНИЯ ИМПОРТ)
+# ==========================================
+CSS = """
+<style>
+    .stApp {
+        background-color: #fafafa;
+    }
+    h1 {
+        color: #2e7d32;
+    }
+</style>
+"""
 
 # ==========================================
 # PAGE CONFIG
