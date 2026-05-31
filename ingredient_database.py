@@ -1,6 +1,8 @@
 INGREDIENT_DATABASE = {
 
-    # SWEETENERS
+    # ==========================================
+    # SWEETENERS (ПОДСЛАДИТЕЛИ)
+    # ==========================================
 
     "E950": {
         "en": "Acesulfame K",
@@ -9,9 +11,9 @@ INGREDIENT_DATABASE = {
         "category": "Sweetener",
         "info": "Artificial sweetener",
         "aliases": [
-            "e950",
-            "acesulfame k",
-            "ацесулфам к"
+            "e950", "е950",
+            "acesulfame k", "acesulfame-k",
+            "ацесулфам к", "ацесулфам-к", "ацесулфам"
         ]
     },
 
@@ -22,7 +24,7 @@ INGREDIENT_DATABASE = {
         "category": "Sweetener",
         "info": "Artificial sweetener",
         "aliases": [
-            "e951",
+            "e951", "е951",
             "aspartame",
             "аспартам"
         ]
@@ -35,13 +37,15 @@ INGREDIENT_DATABASE = {
         "category": "Sweetener",
         "info": "Artificial sweetener",
         "aliases": [
-            "e955",
+            "e955", "е955",
             "sucralose",
             "сукралоза"
         ]
     },
 
-    # FOOD COLORINGS
+    # ==========================================
+    # FOOD COLORINGS (ОЦВЕТИТЕЛИ)
+    # ==========================================
 
     "E102": {
         "en": "Tartrazine",
@@ -50,7 +54,7 @@ INGREDIENT_DATABASE = {
         "category": "Coloring",
         "info": "May cause hyperactivity in children",
         "aliases": [
-            "e102",
+            "e102", "е102",
             "tartrazine",
             "тартразин"
         ]
@@ -63,8 +67,9 @@ INGREDIENT_DATABASE = {
         "category": "Coloring",
         "info": "Possible allergic reactions",
         "aliases": [
-            "e110",
-            "sunset yellow"
+            "e110", "е110",
+            "sunset yellow", "sunset yellow fcf",
+            "жълто залез", "жълто залез fcf"
         ]
     },
 
@@ -75,8 +80,9 @@ INGREDIENT_DATABASE = {
         "category": "Coloring",
         "info": "Possible hyperactivity risk",
         "aliases": [
-            "e124",
-            "ponceau"
+            "e124", "е124",
+            "ponceau", "ponceau 4r",
+            "понсо", "понсо 4r"
         ]
     },
 
@@ -87,12 +93,15 @@ INGREDIENT_DATABASE = {
         "category": "Coloring",
         "info": "Artificial food coloring",
         "aliases": [
-            "e129",
-            "allura red"
+            "e129", "е129",
+            "allura red", "allura red ac",
+            "алура червено", "алура червен"
         ]
     },
 
-    # PRESERVATIVES
+    # ==========================================
+    # PRESERVATIVES (КОНСЕРВАНТИ)
+    # ==========================================
 
     "E210": {
         "en": "Benzoic Acid",
@@ -101,8 +110,9 @@ INGREDIENT_DATABASE = {
         "category": "Preservative",
         "info": "May cause allergic reactions",
         "aliases": [
-            "e210",
-            "benzoic acid"
+            "e210", "е210",
+            "benzoic acid",
+            "бензоена киселина"
         ]
     },
 
@@ -113,8 +123,9 @@ INGREDIENT_DATABASE = {
         "category": "Preservative",
         "info": "Common preservative in soft drinks",
         "aliases": [
-            "e211",
-            "sodium benzoate"
+            "e211", "е211",
+            "sodium benzoate",
+            "натриев бензоат"
         ]
     },
 
@@ -125,7 +136,9 @@ INGREDIENT_DATABASE = {
         "category": "Preservative",
         "info": "May trigger asthma reactions",
         "aliases": [
-            "e220"
+            "e220", "е220",
+            "sulfur dioxide",
+            "серен диоксид"
         ]
     },
 
@@ -136,12 +149,15 @@ INGREDIENT_DATABASE = {
         "category": "Preservative",
         "info": "Linked to cancer risk",
         "aliases": [
-            "e250",
-            "sodium nitrite"
+            "e250", "е250",
+            "sodium nitrite",
+            "натриев нитрит"
         ]
     },
 
-    # FLAVOR ENHANCERS
+    # ==========================================
+    # FLAVOR ENHANCERS (ОПТИМИЗАТОРИ НА ВКУСА)
+    # ==========================================
 
     "E621": {
         "en": "Monosodium Glutamate",
@@ -150,9 +166,9 @@ INGREDIENT_DATABASE = {
         "category": "Flavor Enhancer",
         "info": "Flavor enhancer",
         "aliases": [
-            "e621",
-            "msg",
-            "monosodium glutamate"
+            "e621", "е621",
+            "msg", "monosodium glutamate",
+            "мононатриев глутамат", "глутамат"
         ]
     },
 
@@ -163,7 +179,9 @@ INGREDIENT_DATABASE = {
         "category": "Flavor Enhancer",
         "info": "Often used with MSG",
         "aliases": [
-            "e627"
+            "e627", "е627",
+            "disodium guanylate",
+            "динатриев гуанилат"
         ]
     },
 
@@ -174,33 +192,37 @@ INGREDIENT_DATABASE = {
         "category": "Flavor Enhancer",
         "info": "Often used in snacks",
         "aliases": [
-            "e631"
+            "e631", "е631",
+            "disodium inosinate",
+            "динатриев инозинат"
         ]
     },
 
-    # ANTIOXIDANTS
+    # ==========================================
+    # ANTIOXIDANTS (АНТИОКСИДАНТИ)
+    # ==========================================
 
     "E320": {
         "en": "BHA",
-        "bg": "BHA",
+        "bg": "BHA / Бутилхидроксианизол",
         "risk": 3,
         "category": "Antioxidant",
         "info": "Possible carcinogen",
         "aliases": [
-            "e320",
-            "bha"
+            "e320", "е320",
+            "bha", "бутилхидроксианизол"
         ]
     },
 
     "E321": {
         "en": "BHT",
-        "bg": "BHT",
+        "bg": "BHT / Бутилхидрокситолуол",
         "risk": 3,
         "category": "Antioxidant",
         "info": "Possible hormonal disruption",
         "aliases": [
-            "e321",
-            "bht"
+            "e321", "е321",
+            "bht", "бутилхидрокситолуол"
         ]
     }
 }
